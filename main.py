@@ -1,8 +1,18 @@
 import os
 import CRUD as CRUD
+import CRUD.Text as text
 
 if __name__ == "__main__":
     operating_system = os.name # find os type
+
+     # Clear console
+    match operating_system:
+        case "posix" : os.system("clear")
+        case "nt": os.system("cls")
+    
+    text.welcome_text()
+
+    CRUD.init_console()
 
     # Infinite loop, for make sure app don't stopped
     while(True):
@@ -13,9 +23,7 @@ if __name__ == "__main__":
             case "nt": os.system("cls")
 
         # Print welcome text
-        print("WELCOME")
-        print("LIBRARY DATABASE")
-        print("=========================")
+        text.welcome_text()
         
         # print option list
         print(f"1. Read Data")
@@ -26,16 +34,12 @@ if __name__ == "__main__":
         # user input
         user_option = input("Enter opsi: ")
 
-        print("\n=========================\n")
-
         # find match user input
         match user_option:
-            case "1" : print("Read Data")
+            case "1" : CRUD.read_console()
             case "2" : print("Create Data")
             case "3" : print("Update Data")
             case "3" : print("Delete Data")
-
-        print("\n=========================\n") 
 
         # answer
         is_done = input("Can be done (y/n)? ")
