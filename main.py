@@ -5,7 +5,7 @@ import CRUD.Text as text
 if __name__ == "__main__":
     operating_system = os.name # find os type
 
-     # Clear console
+    # Clear console
     match operating_system:
         case "posix" : os.system("clear")
         case "nt": os.system("cls")
@@ -37,7 +37,7 @@ if __name__ == "__main__":
         # find match user input
         match user_option:
             case "1" : CRUD.read_console()
-            case "2" : print("Create Data")
+            case "2" : CRUD.create_console()
             case "3" : print("Update Data")
             case "3" : print("Delete Data")
 

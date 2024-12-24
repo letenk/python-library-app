@@ -1,5 +1,24 @@
 from . import Operation
 
+def create_console(): 
+    print("\n\n"+"="*100)
+    print("Please input book data\n")
+    writer = input("Writer\t: ")
+    title = input("Title\t: ")
+    while(True):
+        try:
+            year = int(input("Year\t: "))
+            if len(str(year)) == 4:
+                break
+            else:
+                print("field year must be integer, please insert again with format (yyyy)") 
+        except:
+            print("field year must be integer, please insert again with format (yyyy)")
+        
+    Operation.create(writer, title, year)
+    print("Library list")
+    read_console()
+
 def read_console():
     data_file = Operation.read()
     index = "No"
