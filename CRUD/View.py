@@ -1,5 +1,37 @@
 from . import Operation
 
+def delete_console():
+    read_console()
+
+    while(True):
+        print("Please insert book id")
+        bookId = int(input("Book Id: "))
+        record = Operation.read(index=bookId)
+
+        if record:
+            # breakdown data
+            data = record.split(",")
+            writer      = data[2]
+            title       = data[3]
+            year        = data[4][:-1]
+
+            print("\n"+"="*100)
+            print("This is data yout want to delete")
+            print(f"1. Title\t: {title:.40}")
+            print(f"2. Writer\t: {writer:.40}")
+            print(f"3. Year\t: {year:40}")
+
+            is_done = input("Sure to delete this record (y/n)? ")
+            if is_done == "y" or is_done == "Y":
+                Operation.delete(bookId)
+                break
+            
+            break
+        else:
+            print("book id not found, please insert again")
+
+    print(f"delete book id {bookId} data successfully")
+
 def update_console():
     read_console()
     
@@ -44,6 +76,7 @@ def update_console():
                         except:
                             print("field year must be integer, please insert again with format (yyyy)")
                 case _: print("index don't match")
+
         is_done = input("Can be done update (y/n)? ")
         if is_done == "y" or is_done == "Y":
             break

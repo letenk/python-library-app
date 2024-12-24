@@ -1,6 +1,27 @@
 from . import Database
 from .Util import random_string
 import time
+import os
+
+def delete(bookId):
+    try:
+        with open(Database.DB_NAME, 'r') as file:
+            count = 0
+            while(True):
+                content = file.readline()
+                if len(content) == 0:
+                    break
+                elif count == bookId - 1:
+                    pass
+                else:
+                    with open("data_temp.txt",'a',encoding="utf-8") as temp_file:
+                        temp_file.write(content)
+                count += 1
+    except:
+        print("database error")
+    
+    os.rename("data_temp.txt", Database.DB_NAME)
+
 
 def update(bookId,pk,createdAt,year,title,writer):
     data = Database.TEMPLATE.copy()

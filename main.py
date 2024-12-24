@@ -39,7 +39,7 @@ if __name__ == "__main__":
             case "1" : CRUD.read_console()
             case "2" : CRUD.create_console()
             case "3" : CRUD.update_console()
-            case "3" : print("Delete Data")
+            case "4" : CRUD.delete_console()
 
         # answer
         is_done = input("Can be done (y/n)? ")
