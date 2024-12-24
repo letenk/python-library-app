@@ -38,7 +38,7 @@ if __name__ == "__main__":
         match user_option:
             case "1" : CRUD.read_console()
             case "2" : CRUD.create_console()
-            case "3" : print("Update Data")
+            case "3" : CRUD.update_console()
             case "3" : print("Delete Data")
 
         # answer
